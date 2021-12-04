@@ -1,14 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>slider</title>
+    <title>Slider</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .cover-fit {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .slide-wrap {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide-imgs {
+            left: 0;
+            transition: .5s;
+        }
+
+        .slide-imgs li {
+            width: 600px;
+            height: 400px;
+        }
+
+        .pages {
+            bottom: 0;
+            width: 100%;
+        }
+
+        .pages li {
+            border: 1px solid #fff;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+        }
+
+        .pages li:hover {
+            background: #fff;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="wrapper">
+        <div class="slide-wrap position-relative ">
+            <ul class="d-flex slide-imgs position-absolute list-unstyled">
+                <li><img class="cover-fit" src="./image/cat1.jpeg" alt=""></li>
+                <li><img class="cover-fit" src="./image/cat2.png" alt=""></li>
+                <li><img class="cover-fit" src="./image/cat3.jpeg" alt=""></li>
+                <li><img class="cover-fit" src="./image/cat4.jpeg" alt=""></li>
+            </ul>
+            <ul class="list-unstyled pages d-flex position-absolute justify-content-center" id="pages">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>
+        let slideWidth = 600;
+        $("#pages li").click(function () {
+            let slideIndex = $(this).index()
+            let slideMove = 0 - slideIndex * slideWidth
+            $("ul.slide-imgs").css("left", slideMove + "px")
+        })
+
+
+    </script>
 
 </body>
 
